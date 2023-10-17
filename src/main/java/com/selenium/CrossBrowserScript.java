@@ -5,19 +5,16 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.interactions.Actions;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Optional;
-import org.testng.annotations.Parameters;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
 import java.util.concurrent.TimeUnit;
 
 public class CrossBrowserScript {
     public static WebDriver driver;
-    @BeforeMethod
+    @BeforeTest
     @Parameters("browser")
     public void setup(@Optional("Edge") String browser) throws Exception {
-        // tetsing if paramatere passed from testNG is "microsoft edge"
+        // Testing if parameters are passed from testNG is "Microsoft Edge"
         if (browser.equalsIgnoreCase("Edge")){
             System.setProperty("webdriver.edge.driver", "D:\\seleniumServer\\edgedriver_win64//msedgedriver.exe");
             driver = new EdgeDriver();
@@ -42,5 +39,6 @@ public class CrossBrowserScript {
         Actions builder = new Actions(driver);
         builder.moveToElement(driver.findElement(By.cssSelector("a[data-toggle='dropdown']"))).build().perform();
         Thread.sleep(4000);
+
     }
 }
