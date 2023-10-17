@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true" name="EdgeTest">
+            <parameter name='browser' value="Edge" />
+            <classes>
+                <class name="com.selenium.CrossBrowserScript"></class>
+            </classes>
+        </test>
+        <test name="ChromeTest">
+            <parameter name='browser' value="Chrome"/>
+            <classes>
+                <class name="com.selenium.CrossBrowserScript"></class>
+            </classes>
+        </test>
+</suite>
